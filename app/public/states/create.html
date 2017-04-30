@@ -1,0 +1,470 @@
+<section ng-controller="BindingController as bindCtrl" class="view-page">
+
+  <section ng-controller="CourseController as courseCtrl">
+
+  <div class="row">
+    <div class="col s12">
+      <ul tabs reload="allTabContentLoaded">
+        <li class="tab col s4"><a href="#DevOps" class="nav-tab" ng-click="courseCtrl.showCourses('devops', true)">DevOps</a></li>
+        <li class="tab col s4"><a href="#SDET" class="nav-tab" ng-click="courseCtrl.showCourses('sdet', true)">SDET</a></li>
+        <li class="tab col s4"><a href="#WebDev" class="nav-tab" ng-click="courseCtrl.showCourses('webdev', true)">WebDev</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Course Outline Creation Form field -->
+    <div class="side-bar-view container">
+      <div class="row">
+        <div class="col offset-s1">
+          <button class="btn waves-effect waves-light" ng-click="courseCtrl.reset()">Clear Form</button>
+        </div>
+      </div>
+      <!-- Create new Module -->
+      <div class="row">
+        <div class="col offset-s1">
+          <button class="btn waves-effect waves-light" data-target="moduleForm" modal>Create New Module</button>
+        </div>
+      </div>
+      <form class="" ng-submit="courseCtrl.createCourse()">
+
+        <ul class="collapsible popout col s10" data-collapsible="accordion" watch>
+          <label class="form-header">
+            Page 1
+          </label>
+          <!-- Course type dropdown menu -->
+          <li>
+            <div class="collapsible-header">
+              <label for="courseTypeOptions" class="course-type" >Course Type</label>
+            </div>
+            <div class="collapsible-body">
+              <select name="courseTypeOptions" class="course-type" ng-model="courseCtrl.newCourse.courseType" material-select>
+                <option value="webdev">WebDev</option>
+                <option value="sdet">SDET</option>
+                <option value="devops">DevOps</option>
+              </select>
+            </div>
+          </li>
+            <!-- Course title input -->
+          <li>
+            <div class="collapsible-header">
+              <label>Course Title</label>
+            </div>
+            <div class="collapsible-body">
+              <input type="text" ng-model="courseCtrl.newCourse.title" maxlength="20">
+            </div>
+          </li>
+          <!-- About Course Title -->
+          <li>
+            <div class="collapsible-header">
+              <label>About Title</label>
+            </div>
+            <div class="collapsible-body">
+              <input type="text" ng-model="courseCtrl.newCourse.aboutTitle">
+            </div>
+          </li>
+          <!-- About Course Body -->
+          <li>
+            <div class="collapsible-header">
+              <label>About Body</label>
+            </div>
+            <div class="collapsible-body">
+              <textarea class="createOutlineTextarea materialize-textarea" ng-model="courseCtrl.newCourse.aboutBody"></textarea>
+            </div>
+          </li>
+          <!-- About Quote Body -->
+          <li>
+            <div class="collapsible-header">
+              <label>About Quote Body</label>
+            </div>
+            <div class="collapsible-body">
+              <textarea class="createOutlineTextarea materialize-textarea" ng-model="courseCtrl.newCourse.aboutBodyQuotes"></textarea>
+            </div>
+          </li>
+          <!-- About Quoted Person -->
+          <li>
+            <div class="collapsible-header">
+              <label>About Quoted Person</label>
+            </div>
+            <div class="collapsible-body">
+              <input type="text" ng-model="courseCtrl.newCourse.aboutBodyQuotedPerson">
+            </div>
+          </li>
+          <!-- Sponser Icons -->
+          <li>
+            <div class="collapsible-header">
+              <label>Sponser Icons</label>
+            </div>
+            <div class="collapsible-body">
+              <div class="row">
+                <div class="col s12 m12">
+                  <ul class="collapsible" data-collapsible="accordion">
+                    <!-- Icon 1 -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Icon 1 image url</label>
+                      </div>
+                      <div class="collapsible-body">
+                        <input type="text" ng-model="courseCtrl.newCourse.iconOne">
+                      </div>
+                    </li>
+                    <!-- Icon 2 -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Icon 2 image url</label>
+                      </div>
+                      <div class="collapsible-body">
+                        <input type="text" ng-model="courseCtrl.newCourse.iconTwo">
+                      </div>
+                    </li>
+                    <!-- Icon 3 -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Icon 3 image url</label>
+                      </div>
+                      <div class="collapsible-body">
+                        <input type="text" ng-model="courseCtrl.newCourse.iconThree">
+                      </div>
+                    </li>
+                    <!-- Icon 4 -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Icon 4 image url</label> 
+                      </div>
+                      <div class="collapsible-body">
+                        <input type="text" ng-model="courseCtrl.newCourse.iconFour">
+                      </div>
+                    </li>
+                    <!-- Icon 5 -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Icon 5 image url</label>
+                      </div>
+                      <div class="collapsible-body">
+                        <input type="text" ng-model="courseCtrl.newCourse.iconFive">
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!-- Selling Points -->
+          <li>
+            <div class="collapsible-header">
+              <label>Selling Points</label>
+            </div>
+            <div class="collapsible-body">
+              <div class="row">
+                <div class="col s12 m12">
+                  <ul class="collapsible" data-collapsible="accordion">
+                    <!-- Selling Point 1 Icon -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Selling Point 1 Icon</label>
+                      </div>
+                      <div class="collapsible-body">
+                        <div>
+                          <label>Selling Point 1 Icon url</label>
+                          <input type="text" ng-model="courseCtrl.newCourse.sellingPointIconOne">
+                        </div>
+                        <div>
+                          <label>Selling Point 1 Text</label>
+                          <textarea class="createOutlineTextarea materialize-textarea" ng-model="courseCtrl.newCourse.sellingPointTextOne"></textarea>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- Selling Point 2 Icon -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Selling Point 2 Icon</label>
+                      </div>
+                      <div class="collapsible-body">
+                        <div>
+                          <label>Selling Point 2 Icon url</label>
+                          <input type="text" ng-model="courseCtrl.newCourse.sellingPointIconTwo">
+                        </div>
+                        <div>
+                          <label>Selling Point 2 Text</label>
+                          <textarea class="createOutlineTextarea materialize-textarea" ng-model="courseCtrl.newCourse.sellingPointTextTwo"></textarea>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- Selling Point 3 Icon -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Selling Point 3 Icon</label>
+                      </div>
+                      <div class="collapsible-body">
+                        <div>
+                          <label>Selling Point 3 Icon url</label>
+                          <input type="text" ng-model="courseCtrl.newCourse.sellingPointIconThree">
+                        </div>
+                        <div>
+                          <label>Selling Point 3 Text</label>
+                          <textarea class="createOutlineTextarea materialize-textarea" ng-model="courseCtrl.newCourse.sellingPointTextThree"></textarea>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- Selling Point 4 Icon -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Selling Point 4 Icon</label>
+                      </div>
+                      <div class="collapsible-body">
+                        <div>
+                          <label>Selling Point 4 Icon url</label>
+                          <input type="text" ng-model="courseCtrl.newCourse.sellingPointIconFour">
+                        </div>
+                        <div>
+                          <label>Selling Point 4 Text</label>
+                          <textarea class="createOutlineTextarea materialize-textarea" ng-model="courseCtrl.newCourse.sellingPointTextFour"></textarea>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- Selling Point 5 Icon -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Selling Point 5 Icon</label>
+                      </div>
+                      <div class="collapsible-body">
+                        <div>
+                          <label>Selling Point 5 Icon url</label>
+                          <input type="text" ng-model="courseCtrl.newCourse.sellingPointIconFive">
+                        </div>
+                        <div>
+                          <label>Selling Point 5 Text</label>
+                          <textarea class="createOutlineTextarea materialize-textarea" ng-model="courseCtrl.newCourse.sellingPointTextFive"></textarea>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- Selling Point 6 Icon -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Selling Point 6 Icon</label>
+                      </div>
+                      <div class="collapsible-body">
+                        <div>
+                          <label>Selling Point 6 Icon url</label>
+                          <input type="text" ng-model="courseCtrl.newCourse.sellingPointIconSix">
+                        </div>
+                        <div>
+                          <label>Selling Point 6 Text</label>
+                          <textarea class="createOutlineTextarea materialize-textarea" ng-model="courseCtrl.newCourse.sellingPointTextSix"></textarea>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- Selling Point 7 Icon -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Selling Point 7 Icon</label>
+                      </div>
+                      <div class="collapsible-body">
+                        <div>
+                          <label>Selling Point 7 Icon url</label>
+                          <input type="text" ng-model="courseCtrl.newCourse.sellingPointIconSeven">
+                        </div>
+                        <div>
+                          <label>Selling Point 7 Text</label>
+                          <textarea class="createOutlineTextarea materialize-textarea" ng-model="courseCtrl.newCourse.sellingPointTextSeven"></textarea>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- Selling Point 8 Icon -->
+                    <li>
+                      <div class="collapsible-header">
+                        <label>Selling Point 8 Icon</label>
+                      </div>
+                      <div class="collapsible-body">
+                        <div>
+                          <label>Selling Point 8 Icon url</label>
+                          <input type="text" ng-model="courseCtrl.newCourse.sellingPointIconEight">
+                        </div>
+                        <div>
+                          <label>Selling Point 8 Text</label>
+                          <textarea class="createOutlineTextarea materialize-textarea" ng-model="courseCtrl.newCourse.sellingPointTextEight"></textarea>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        
+        <!-- PAGE TWO INPUT FIELDS -->
+        <ul class="collapsible popout col s10" data-collapsible="accordion" watch>
+          <!-- Page 2 Title -->
+          <label class="form-header">
+            Page 2
+          </label>
+          <li>
+            <div class="collapsible-header">
+              <label>Page 2 Title</label>
+            </div>
+            <div class="collapsible-body">
+              <input type="text" ng-model="courseCtrl.newCourse.pageTwoTitle" maxlength="20">
+            </div>
+          </li>
+          <li ng-controller="ModuleController as modCtrl" ng-init="modCtrl.getModules()">
+            <div class="collapsible-header">
+              <label>
+                Select modules
+              </label>
+            </div>
+            <div class="collapsible-body" input-field>
+              <select class="" ng-model="chosenModules" ng-change="modCtrl.selectModules(chosenModules)" material-select multiple watch data-ng-options="module as module.title for module in modCtrl.allModules">
+                <option value="{{module}}"></option>
+              </select>
+            </div>
+          </li>
+        </ul>
+      <!-- Submit whole form -->
+        <div class="col offset-s1">
+          <button type="submit" class="btn waves-effect waves-light">Save Course Outline</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+
+  <div id="moduleForm" class="modal modal-fixed-footer" ng-controller="ModuleController as modCtrl">
+    <form ng-submit="modCtrl.createModule()">
+      <a ui-sref="create" class="left modal-close waves-effect waves-green btn-flat"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+      <div class="modal-content">
+        <div class="container text-align-left">
+          <div class="row">
+            <div class="input-field col s6">
+              <div class="row">
+                <label>Module title</label>
+                <input type="text" ng-model="modCtrl.newModule.moduleTitle">
+              </div>
+            </div>
+            <div class="input-field col s12">
+              <div class="row">
+                <label>Module description</label>
+                <input type="text" ng-model="modCtrl.newModule.moduleDescription">
+              </div>
+            </div>
+
+            <div class="input-field col s12">
+              <div class="row">
+                <label>Module colour</label>
+                
+                <select ng-model="modCtrl.selectedColour" material-select watch>
+                  <option ng-repeat="(key, value) in modCtrl.moduleColours" value="{{value}}">{{key}}</option>
+                </select>
+                {{ value }}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="modal-action modal-close waves-effect waves-green btn-flat" value="Add a module"><!-- </button> -->
+      </div>
+    </form>
+  </div>
+
+  
+
+<!-- ===============COURSE OUTLINE DISPLAY=================== -->
+    <div class="page-content-background-view container">
+      <div class="col s10 offset-s1">
+        <div class="printable-course">
+          <!-- THE HEADER OF THE TEMPLATE -->
+          <div class="courseOutlineBanner">
+            <img class="banner-sparta-logo courseOutlineLogo" src="images/ReverseColorLogo.png">
+            <header class="courseOutlineHeader">
+              <h2 class="courseOutlineTitle">{{ courseCtrl.newCourse.title }}</h2>
+            </header>
+          </div>
+          <!-- ABOUT SECTION -->
+          <div class="courseOutlineAboutSection">
+            <img class="aboutImage" src="images/AboutImage.png">
+            <h5 class="aboutTitle">{{ courseCtrl.newCourse.aboutTitle }}</h5>
+            <p class="aboutBody">{{ courseCtrl.newCourse.aboutBody }}</p>
+            <h3 class="quotationMarks">"</h3>
+            <p class="aboutBodyQuotes">{{ courseCtrl.newCourse.aboutBodyQuotes }}</p>
+            <h3 class="quotationMarks2">"</h3>
+            <p class="aboutBodyQuotesPerson">{{ courseCtrl.newCourse.aboutBodyQuotedPerson }}</p>
+          </div>
+          <!-- PARTNER ICONS SECTION -->
+          <div class="row partnerBanner">
+            <img class="icons" src="{{ courseCtrl.newCourse.iconOne }}">
+            <img class="icons" src="{{ courseCtrl.newCourse.iconTwo }}">
+            <img class="icons" src="{{ courseCtrl.newCourse.iconThree }}">
+            <img class="icons" src="{{ courseCtrl.newCourse.iconFour }}">
+            <img class="icons" src="{{ courseCtrl.newCourse.iconFive }}">
+          </div>
+          <!-- SELLING POINTS SECTION -->
+          <div class="sellingPointsSection">
+            <img class="mapImage" src="images/Map.jpg">
+            <div class="row sellingPointsMainContainer">
+              <div class="SellingPointsContainers">
+                <img class="sellingPointsIcons" src="{{ courseCtrl.newCourse.sellingPointIconOne }}">
+                <p class="sellingPointText">{{ courseCtrl.newCourse.sellingPointTextOne }}</p>
+              </div>            
+              <div class="SellingPointsContainers">
+                <img class="sellingPointsIcons" src="{{ courseCtrl.newCourse.sellingPointIconTwo }}">
+                <p class="sellingPointText">{{ courseCtrl.newCourse.sellingPointTextTwo }}</p>
+              </div>
+              <div class="SellingPointsContainers">
+                <img class="sellingPointsIcons" src="{{ courseCtrl.newCourse.sellingPointIconThree }}">
+                <p class="sellingPointText">{{ courseCtrl.newCourse.sellingPointTextThree }}</p>
+              </div>
+              <div class="SellingPointsContainers">
+                <img class="sellingPointsIcons" src="{{ courseCtrl.newCourse.sellingPointIconFour }}">
+                <p class="sellingPointText">{{ courseCtrl.newCourse.sellingPointTextFour }}</p>
+              </div>
+              <div class="SellingPointsContainers">
+                <img class="sellingPointsIcons" src="{{ courseCtrl.newCourse.sellingPointIconFive }}">
+                <p class="sellingPointText">{{ courseCtrl.newCourse.sellingPointTextFive }}</p>
+              </div>
+              <div class="SellingPointsContainers">
+                <img class="sellingPointsIcons" src="{{ courseCtrl.newCourse.sellingPointIconSix }}">
+                <p class="sellingPointText">{{ courseCtrl.newCourse.sellingPointTextSix }}</p>
+              </div>
+              <div class="SellingPointsContainers">
+                <img class="sellingPointsIcons" src="{{ courseCtrl.newCourse.sellingPointIconSeven }}">
+                <p class="sellingPointText">{{ courseCtrl.newCourse.sellingPointTextSeven }}</p>
+              </div>
+              <div class="SellingPointsContainers">
+                <img class="sellingPointsIcons" src="{{ courseCtrl.newCourse.sellingPointIconEight }}">
+                <p class="sellingPointText">{{ courseCtrl.newCourse.sellingPointTextEight }}</p>
+              </div>
+            </div>
+
+              <!-- SECOND PAGE -->
+              <div class="courseOutlinePage2">
+                <div class="courseOutlineBanner">
+                  <header class="courseOutlineHeader">
+                    <h2 class="courseOutlineTitleP2">{{ courseCtrl.newCourse.pageTwoTitle }}</h2>
+                    <ul class="ModColorKey">
+                      <li class="ModColorKeyText"><i class="fa fa-circle blueDot" aria-hidden="true"></i>Core Module</li>
+                      <li class="ModColorKeyText"><i class="fa fa-circle greenDot" aria-hidden="true"></i>Certification</li>
+                      <li class="ModColorKeyText"><i class="fa fa-circle orangeDot" aria-hidden="true"></i>Specialist Module</li>
+                    </ul>
+                  </header>
+                </div>
+
+
+                <div class="courseModuleContainers container" ng-controller="ModuleController as modCtrl" ng-init="modCtrl.getModules()">
+                  <div deckgrid class="deckgrid" source="modCtrl.chosenModules">
+                    <module class="CourseModule"  title="card.title" description="card.description"></module>
+                  </div>
+                </div>
+              </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+
+
+

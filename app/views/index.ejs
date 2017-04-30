@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="outliner">
+<head>
+  <title><%- title %></title>
+  <!-- Libraries -->
+    <!-- scripts for libraries -->
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>  
+  <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script type="text/javascript" src="bower_components/waves/dist/waves.min.js"></script>
+  <script src="bower_components/angular-deckgrid/angular-deckgrid.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <!-- links for libraries -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/ng-materialize/dist/ng-materialize.css">
+  <link rel="stylesheet" type="text/css" href="bower_components/waves/dist/waves.min.css">
+
+
+  <!-- Scripts -->
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/main.min.js"></script>
+  <script type="text/javascript" src="js/services/courseform.serv.js"></script>
+  <script type="text/javascript" src="js/controllers/auth.ctrl.js"></script>
+  <script type="text/javascript" src="js/controllers/binding.ctrl.js"></script>
+  <script type="text/javascript" src="js/controllers/course.ctrl.js"></script>
+  <script type="text/javascript" src="js/controllers/module.ctrl.js"></script>
+  <script type="text/javascript" src="js/factories/auth.fact.js"></script>
+  <script type="text/javascript" src="js/factories/user.fact.js"></script>
+  <script type="text/javascript" src="js/factories/module.fact.js"></script>
+  <script type="text/javascript" src="js/factories/course.fact.js"></script>
+  <script type="text/javascript" src="js/directives/module.dir.js"></script>
+
+  
+  <!-- STYLES -->
+  <link rel="shortcut icon" href="images/Sparta-fav.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body ng-controller="AuthController as authCtrl">
+
+  <header>
+    <!-- Navbar -->
+    <nav class="banner">
+      <img class="banner-sparta-logo" src="images/ReverseColorLogo.png">
+      <ul class="nav-buttons">
+        <li><a class="sngl-nav-button waves-effect waves-light btn" id="home" href="/">Home</a></li>
+        <li><a class="sngl-nav-button waves-effect waves-light btn" id="courses" ui-sref="view">Courses</a></li>
+        <li><a ng-if="authCtrl.loggedIn" class="sngl-nav-button waves-effect waves-light btn" id="Create" ui-sref="create">Create</a></li>
+        <li><a ng-if="authCtrl.loggedIn" class="sngl-nav-button waves-effect waves-light btn" id="Users" ui-sref="users">Users</a></li>
+        <!-- Dropdown Trigger -->
+        <li><a ng-if="!authCtrl.loggedIn" class="sngl-nav-button waves-effect waves-light btn dropdown-button" href='javascript:void(0);' data-activates='login' dropdown data-hover="true">Login</a></li>
+        <li><a ng-if="authCtrl.loggedIn" class="sngl-nav-button waves-effect waves-light btn" ng-click="authCtrl.signOut()">Log Out</a></li>
+      </ul>
+    </nav>
+    <!-- Dropdown Structure -->
+    <ul id='login' class='dropdown-content'>
+        <li><input type="email" placeholder="Enter email..." ng-model="authCtrl.email"></li>
+        <li><input type="password" placeholder="Enter password..." ng-model="authCtrl.password"></li>
+        <li><a class="waves-effect waves-light btn" ng-click="authCtrl.signIn()">GO</a></li>
+        <li><a ui-sref="passwordreset">Reset Password</a></li>
+    </ul>
+
+  </header>
+  <!-- UI-views of other angular states -->
+	<section class="row" ui-view></section>
+</body>
+</html>

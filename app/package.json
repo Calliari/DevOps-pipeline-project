@@ -1,0 +1,44 @@
+{
+  "name": "outliner",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node_modules/mocha/bin/mocha test/test-server.js"
+  },
+  "author": "webdev3",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bower": "^1.8.0",
+    "ejs": "^2.5.5",
+    "express": "^4.15.2",
+    "font-awesome": "github:fortawesome/Font-Awesome",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-main-bower-files": "^1.6.1",
+    "gulp-uglify": "^2.1.0",
+    "jshint": "^2.9.4",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.0",
+    "nodemon": "^1.11.0",
+    "request": "^2.81.0",
+    "sendmail": "^1.1.1",
+    "mocha": "^3.2.0"
+  },
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-main-bower-files": "^1.6.1",
+    "gulp-uglify": "^2.1.0",
+    "jshint": "^2.9.4",
+    "mocha": "^3.2.0"
+  }
+}

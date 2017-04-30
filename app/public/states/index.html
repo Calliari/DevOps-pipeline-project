@@ -1,0 +1,39 @@
+<section ng-controller="CourseController as courseCtrl" class="all-courses">
+	<div class="container">
+    <div class="row course-row">
+        	
+      <div class="col s3 offset-s0.5">
+	      <div class="course card">
+          <a ui-sref="view({type: 'webdev'})" ng-click="courseCtrl.showCourses('webdev')">
+  	        <div class="card-content white-text">
+  	          <p class="course-title card-title">Web Dev</P>
+  	          <i class="fa fa-laptop fa-4x" aria-hidden="true"></i>
+  	        </div>
+          </a>
+	      </div>
+	    </div>
+
+      <div class="col s3 offset-s1">
+        <div class="course card">
+          <a ui-sref="view({type: 'sdet'})" ng-click="courseCtrl.showCourses('sdet')">
+          	<div class="card-content white-text">
+              <P class="course-title card-title">SDET</P>
+              <i class="fa fa-pencil-square-o fa-4x" aria-hidden="true"></i>
+            </div>
+           </a>
+        </div>
+      </div>
+
+
+      <div class="col s3 offset-s1">
+        <div class="course card">
+         <a ui-sref="view({type: 'devops'})" ng-click="courseCtrl.showCourses('devops')">
+            <div class="card-content white-text">
+            <p class="course-title card-title">Dev Ops</p>
+            <i class="fa fa-terminal fa-4x" aria-hidden="true"></i>
+          </div></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

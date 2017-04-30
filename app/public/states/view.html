@@ -1,0 +1,112 @@
+<section class="view-page ng-enter ng-enter-active" ng-controller="CourseController as courseCtrl">
+<div class="doNotPrintMe">
+	<div class="side-bar-view container">
+		<div class="row courseLinksRowTopGap">
+
+			<div>
+        <p class="btn createBtns" ui-sref="view({type: 'devops'})">DevOps<i class="fa fa-terminal fa-1.5x" aria-hidden="true"></i></p>
+      </div>			
+      <div>
+        <p class="btn createBtns" ui-sref="view({type: 'sdet'})">SDET</br><i class="fa fa-pencil-square-o fa-1.5x" aria-hidden="true"></i></p>
+      </div>			
+      <div>
+        <p class="btn createBtns" ui-sref="view({type: 'webdev'})">WebDev<i class="fa fa-laptop fa-1.5x" aria-hidden="true"></i></p>
+      </div>
+			
+		</div>
+	</div>
+	<p>Course Outline Creator: {{ courseCtrl.course.creator }}</p>
+	<input class="btn" type="button" onclick="print('printable-course')" value="Save/Print"/>
+</div>
+
+
+	<div class="page-content-background-view container">
+    <div class="col s10 offset-s1">
+      <div id="printable-course" class="printable-course">
+
+        <!-- THE HEADER OF THE TEMPLATE -->
+        <div class="courseOutlineBanner">
+          <img class="banner-sparta-logo courseOutlineLogo" src="images/ReverseColorLogo.png">
+          <header class="courseOutlineHeader courseOutlineHeaderTwo">
+            <h2 class="courseOutlineTitle">{{ courseCtrl.course.title }}</h2>
+          </header>
+        </div>
+        <!-- ABOUT SECTION -->
+        <div class="courseOutlineAboutSection">
+          <img class="aboutImage" src="images/AboutImage.png">
+          <h5 class="aboutTitle">{{ courseCtrl.course.aboutTitle }}</h5>
+          <p class="aboutBody">{{ courseCtrl.course.aboutBody }}</p>
+          <h3 class="quotationMarks">"</h3>
+          <p class="aboutBodyQuotes">{{ courseCtrl.course.aboutBodyQuotes }}</p>
+          <h3 class="quotationMarks2">"</h3>
+          <p class="aboutBodyQuotesPerson">{{ courseCtrl.course.aboutBodyQuotedPerson }}</p>
+        </div>
+        <!-- PARTNER ICONS SECTION -->
+        <div class="row partnerBanner">
+          <img class="icons" src="{{ courseCtrl.course.iconOne }}">
+          <img class="icons" src="{{ courseCtrl.course.iconTwo }}">
+          <img class="icons" src="{{ courseCtrl.course.iconThree }}">
+          <img class="icons" src="{{ courseCtrl.course.iconFour }}">
+          <img class="icons" src="{{ courseCtrl.course.iconFive }}">
+        </div>
+        <!-- SELLING POINTS SECTION -->
+        <div class="sellingPointsSection">
+          <img class="mapImage" src="images/Map.jpg">
+          <div class="row sellingPointsMainContainer">
+            <div class="SellingPointsContainers">
+              <img class="sellingPointsIcons" src="{{ courseCtrl.course.sellingPointIconOne }}">
+              <p class="sellingPointText">{{ courseCtrl.course.sellingPointTextOne }}</p>
+            </div>            
+            <div class="SellingPointsContainers">
+              <img class="sellingPointsIcons" src="{{ courseCtrl.course.sellingPointIconTwo }}">
+              <p class="sellingPointText">{{ courseCtrl.course.sellingPointTextTwo }}</p>
+            </div>
+            <div class="SellingPointsContainers">
+              <img class="sellingPointsIcons" src="{{ courseCtrl.course.sellingPointIconThree }}">
+              <p class="sellingPointText">{{ courseCtrl.course.sellingPointTextThree }}</p>
+            </div>
+            <div class="SellingPointsContainers">
+              <img class="sellingPointsIcons" src="{{ courseCtrl.course.sellingPointIconFour }}">
+              <p class="sellingPointText">{{ courseCtrl.course.sellingPointTextFour }}</p>
+            </div>
+            <div class="SellingPointsContainers">
+              <img class="sellingPointsIcons" src="{{ courseCtrl.course.sellingPointIconFive }}">
+              <p class="sellingPointText">{{ courseCtrl.course.sellingPointTextFive }}</p>
+            </div>
+            <div class="SellingPointsContainers">
+              <img class="sellingPointsIcons" src="{{ courseCtrl.course.sellingPointIconSix }}">
+              <p class="sellingPointText">{{ courseCtrl.course.sellingPointTextSix }}</p>
+            </div>
+            <div class="SellingPointsContainers">
+              <img class="sellingPointsIcons" src="{{ courseCtrl.course.sellingPointIconSeven }}">
+              <p class="sellingPointText">{{ courseCtrl.course.sellingPointTextSeven }}</p>
+            </div>
+            <div class="SellingPointsContainers">
+              <img class="sellingPointsIcons" src="{{ courseCtrl.course.sellingPointIconEight }}">
+              <p class="sellingPointText">{{ courseCtrl.course.sellingPointTextEight }}</p>
+            </div>
+          </div>
+          <!-- SECOND PAGE -->
+          <div class="printable-course">
+            <div class="courseOutlineBanner">
+              <header class="courseOutlineHeader">
+                <h2 class="courseOutlineTitleP2">{{ courseCtrl.course.pageTwoTitle }}</h2>
+                <ul class="ModColorKey">
+                  <li class="ModColorKeyText"><i class="fa fa-circle blueDot" aria-hidden="true"></i>Core Module</li>
+                  <li class="ModColorKeyText"><i class="fa fa-circle greenDot" aria-hidden="true"></i>Certification</li>
+                  <li class="ModColorKeyText"><i class="fa fa-circle orangeDot" aria-hidden="true"></i>Specialist Module</li>
+                </ul>
+              </header>
+            </div>
+
+            <div class="courseModuleContainers"></div>
+
+            <footer class="courseOutlineFooter"></footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+

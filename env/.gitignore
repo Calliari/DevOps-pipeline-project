@@ -1,0 +1,3 @@
+.vagrant
+node_module
+Berksfile.lock

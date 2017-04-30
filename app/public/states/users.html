@@ -1,0 +1,138 @@
+<div class="container">
+  <h1 class="col s12">Users</h1>
+</div>
+<section ng-controller="BindingController as test" ng-init="authCtrl.resetCredentials()">
+  <div class="container">
+  <!-- Table to Display all users in the database -->
+    <div class="row section">
+      <div class="col add-user">
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn-floating modal-trigger add-user-btn" data-target="modal1" modal><i class="fa fa-plus" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <!-- <button ng-click="authCtrl.getUser()"></button> -->
+    <table>
+      <thead>
+        <tr>
+          <th>Email Address</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Permissions</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody ng-init="authCtrl.getAllUsers()">
+        <tr class="table_row" ng-repeat="user in authCtrl.allUsers" ng-click="authCtrl.getUser(user._id)" ink data-target="modal2" modal>
+          <td>{{user.email}}</td>
+          <td>{{user.firstname}}</td>
+          <td>{{user.lastname}}</td>
+          <td ng-show="{{user.permission == true}}">Admin</td>
+          <td ng-show="{{user.permission !== true}}">Trainer</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Form for registering users -->
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <a ui-sref="users" class="modal-close waves-effect waves-effect btn-flat"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+    <div class="modal-content">
+      <!-- Form for registering users -->
+      <div class="container" >
+        <div class="row">
+          <form class="col s11">
+            <div class="row">
+              <div class="input-field col s6">
+                <label for="first_name">First Name</label>
+                <input ng-model="authCtrl.firstname" type="text" id="first_name">
+              </div>
+              <div class="input-field col s6">
+                <label for="last_name">Last Name</label>
+                <input ng-model="authCtrl.lastname" type="text" id="last_name">
+              </div>
+              <div class="input-field row col s12">
+                <label for="email">Email</label>
+                <input ng-model="authCtrl.email" type="email" id="email">
+              </div>
+              <div class="input-field row col s12">
+                <label for="password">Default Password</label>
+                <input disabled value="Richmond1" id="disabled" type="text" class="validate">
+              </div>
+              <div>
+                <div class="switch" >
+                  <label>
+                    <input id="my-switch" ng-click="authCtrl.permission = !authCtrl.permission" ng-checked="authCtrl.permission" type="checkbox">
+                    <span class="lever"></span>
+                  </label>
+                </div>
+                <div class="input-field row col s12">
+                  <label for="switch">Permission</label>
+                  <input disabled value="{{authCtrl.permission == true ? 'Admin' : 'Trainer'}}" type="text" id="switch">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <p>*The new user will be sent an email to set their password</p>
+              <p ng-if="authCtrl.error" class="error-message">{{authCtrl.error}}</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="container">
+        <a ng-click="authCtrl.createUser()" class="sngl-nav-button waves-effect waves-light btn" type="Submit">Create</a>
+      </div>
+    </div>
+  </div>
+  <!-- Form for Updating users -->
+  <!-- Modal 2 Structure -->
+  <div id="modal2" class="modal">
+    <a ui-sref="users" class="modal-close waves-effect waves-effect btn-flat"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+    <div class="modal-content">
+      <!-- Form for registering users -->
+      <div class="container" >
+        <div class="row">
+          <form class="col s11">
+            <div class="row">
+              <div class="input-field col s6">
+                <label for="first_name">First Name</label>
+                <input ng-model="authCtrl.selectedUser.firstname" type="text" id="first_name">
+              </div>
+              <div class="input-field col s6">
+                <label for="last_name">Last Name</label>
+                <input ng-model="authCtrl.selectedUser.lastname" type="text" id="last_name">
+              </div>
+              <div class="input-field row col s12">
+                <label for="email">Email</label>
+                <input ng-model="authCtrl.selectedUser.email" disabled type="email" id="email">
+              </div>
+              <div>
+                <div class="switch" >
+                  <label>
+                    <input id="my-switch" ng-click="authCtrl.selectedUser.permission = !authCtrl.selectedUser.permission" ng-checked="authCtrl.selectedUser.permission" type="checkbox">
+                    <span class="lever"></span>
+                  </label>
+                </div>
+                <div class="input-field row col s12">
+                  <label for="switch">Permission</label>
+                  <input disabled value="{{authCtrl.selectedUser.permission == true ? 'Admin' : 'Trainer'}}" type="text" id="switch">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <div class="container">
+                  <div class="row">
+                    <div class="col">
+                      <a ng-click="authCtrl.deleteUser()" class="sngl-nav-button waves-effect waves-light btn buttonGap" type="Submit">Delete</a>
+                      <a ng-click="authCtrl.updateUser()" ui-sref="users" ui-sref-opts="{reload: true}" class="sngl-nav-button waves-effect waves-light btn buttonGap" type="Submit">Update</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
