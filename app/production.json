@@ -1,0 +1,13 @@
+{
+ "apps": [{
+     "name": "digital_outlineApp",
+     "script": "../digital_outlineApp/app.js",
+     "watch"     : true,
+     "cwd": "../digital_outlineApp",
+     "env": {
+       "MONGODB_URI": "mongodb://34.248.151.171",
+       "PORT": "3000"
+     }
+}]
+
+}
